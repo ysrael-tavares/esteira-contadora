@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        
+		<div class="container">
+			<h1>Condição Atual da Esteira:</h1>
+			<h2 id="ESTEIRA">Desligada</h2>
+			<h1>Quantidade de itens Contados:</h1>
+			<h2 id="ITENS">0</h2>
+			<button type="button" class="btn btn-success" onclick="ligarEsteira()">Ligar</button>
+			<button type="button" class="btn btn-danger" onclick="desligarEsteira()">Desligar</button>
+			<button type="button" class="btn btn-dark" onclick="zerarItens()">Resetar Itens</button>
+		</div>
+    
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>    
+		<script>
+			var conexao = io.connect("https://esteira-contadora.herokuapp.com")
+			conexao.on("atualiza",function(dados){
+				if("ESTEIRA" in dados){
+				if(dados["ESTEIRA"] == "1"){
+					document.getElementById("ESTEIRA").innerHTML = "Desligada"
+				}if(dados["ESTEIRA"] == "0"){
+					document.getElementById("ESTEIRA").innerHTML = "Ligada"
+				}
+				}
+				
+				if("ITENS" in dados){
+					document.getElementById("ITENS").innerHTML = dados["ITENS"]
+				}
+			})
+			
+			function ligarEsteira(){
+				conexao.emit("ligarEsteira")
+			}
+			
+			function desligarEsteira(){
+				conexao.emit("desligarEsteira")
+			}
+
+			function zerarItens(){
+				conexao.emit("zerarItens")
+			}
+			
+			
+		</script
+    </body>
+</html>
