@@ -12,7 +12,7 @@
 
 ![](imagens/funcoes.png)
 
-##Informações do estado atual da esteira
+## Informações do estado atual da esteira
 
 ![](imagens/informacoes.png)
 
