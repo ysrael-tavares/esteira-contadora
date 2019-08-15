@@ -2,9 +2,9 @@
 
 ## Tela inicial do programa
 
-![](imagens/tela-inicial.png)
+![](imagens/tela_inicial.png)
 
-## Área de conexão
+## Ãrea de conexÃ£o
 
 ![](imagens/conexao.png)
 
@@ -12,11 +12,11 @@
 
 ![](imagens/funcoes.png)
 
-##Informações do estado atual da esteira
+##InformaÃ§Ãµes do estado atual da esteira
 
 ![](imagens/informacoes.png)
 
-## Informações também disponiveis na Web
+## InformaÃ§Ãµes tambÃ©m disponiveis na Web
 acessar http://esteira-contadora.herokuapp.com
 
 ![](imagens/pagina_web.png)
