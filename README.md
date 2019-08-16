@@ -31,7 +31,7 @@ Na caixa de seleção, defina a porta onde se encontra a esteira que deseja cont
 
 ![](imagens/conexao.png)
 
-## Funcionalidades dos Programa
+## Funcionalidades do Programa
 
 Aqui as funcionalidades do programa:
 
